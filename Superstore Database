@@ -45,9 +45,9 @@ FROM superstore
 WHERE category="Kitchen Supplies"
 GROUP BY category;
 
-#Display the average rating of items in descending order
+#Display the average rating of "Kitchen Suppplies" in descending order
 
 SELECT *
 FROM superstore
-WHERE average_rating >=4
+WHERE average_rating >=4 AND category="Kitchen Supplies"
 ORDER BY average_rating DESC;
