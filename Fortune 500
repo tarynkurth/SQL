@@ -69,3 +69,16 @@ WHERE healthcare_benefits=1 AND maternity_leave_weeks >=12
 ORDER BY maternity_leave_weeks DESC;
 
 
+--This query determines how competitive a company's benefits package is based on their offering of healthcare benefits, PTO, and weeks of maternity leave.
+
+SELECT company_name, healthcare_benefits, paid_time_off_days, maternity_leave_weeks,
+CASE WHEN healthcare_benefits=1 AND paid_time_off_days >=20 AND maternity_leave_weeks >=12 THEN "Highly Competitive"
+WHEN healthcare_benefits=1 AND paid_time_off_days >=15 AND maternity_leave_weeks >=10 THEN "Moderately Competitive"
+WHEN healthcare_benefits=0 OR paid_time_off_days <15 OR maternity_leave_weeks <12 THEN "Least Competitive"
+END AS Benefits_Package
+FROM fortune_companies
+ORDER BY Benefits_Package;
+
+
+
+
