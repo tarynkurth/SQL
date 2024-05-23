@@ -58,6 +58,8 @@ VALUES
     ('Company JJ', 'Manufacturing', 370.0, 3100, 1, 20, 12, 7.6),
     ('Company KK', 'Healthcare', 150.2, 3400, 0, 16, 8, 5.3);
 
+
+
 --This query looks at which companies offer healthcare benefits and at least 12 weeks of maternity leave. 
 
 SELECT company_name 
@@ -79,11 +81,25 @@ END AS Benefits_Package
 FROM fortune_companies
 ORDER BY Benefits_Package;
 
+
 --This query compares average paid time off and maternity leave for each industry in the dataset.
 
 SELECT industry AS "Industry", ROUND(AVG(paid_time_off_days),2) AS "Average Days Paid Time Off", ROUND(AVG (maternity_leave_weeks), 2) AS "Average Weeks Maternity Leave"
 FROM fortune_companies
 GROUP BY industry;
+
+
+--Which Tech company has the highest revenue and what is the revenue value?
+
+SELECT company_name, MAX(revenue)
+FROM fortune_companies
+WHERE industry = "Technology";
+
+
+
+
+
+
 
 
 
